@@ -21,8 +21,31 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
+          distribution: temurin
           java-version: 17
 
-      - name: Instalar dependencias JS y limpiar
-        run
+      - name: Install JS dependencies and clean
+        run: |
+          npm install
+          cd android
+          ./gradlew clean
+
+      - name: Build Debug APK
+        run: |
+          cd android
+          ./gradlew assembleDebug
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: apk-latest
+          name: Auto APK Build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload APK to Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: android/app/build/outputs/apk/debug/app-debug.apk
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
