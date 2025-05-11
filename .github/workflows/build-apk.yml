@@ -19,29 +19,22 @@ jobs:
         with:
           node-version: 18
 
-      - name: Set up JDK
+      - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
           distribution: 'temurin'
+          java-version: '17'
 
       - name: Install dependencies
         run: npm install
-
-      - name: Install Android SDK dependencies
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: 33
-          script: echo "No emulator needed for build only"
 
       - name: Build Debug APK
         run: |
           cd android
           ./gradlew assembleDebug
 
-        - name: Upload APK artifact
+      - name: Upload APK
         uses: actions/upload-artifact@v2.3.1
         with:
-          name: app-debug.apk
+          name: app-debug
           path: android/app/build/outputs/apk/debug/app-debug.apk
-
