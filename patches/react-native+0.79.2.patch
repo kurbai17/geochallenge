@@ -1,0 +1,47 @@
+diff --git a/node_modules/react-native/ReactAndroid/build.gradle.kts b/node_modules/react-native/ReactAndroid/build.gradle.kts
+index 7658a23..bf06527 100644
+--- a/node_modules/react-native/ReactAndroid/build.gradle.kts
++++ b/node_modules/react-native/ReactAndroid/build.gradle.kts
+@@ -580,8 +580,6 @@ android {
+           preparePrefab)
+   tasks.getByName("generateCodegenSchemaFromJavaScript").dependsOn(buildCodegenCLI)
+   prepareKotlinBuildScriptModel.dependsOn("preBuild")
+-  prepareKotlinBuildScriptModel.dependsOn(
+-      ":packages:react-native:ReactAndroid:hermes-engine:preBuild")
+ 
+   sourceSets.getByName("main") {
+     res.setSrcDirs(
+@@ -669,7 +667,7 @@ dependencies {
+ 
+   // It's up to the consumer to decide if hermes/jsc should be included or not.
+   // Therefore hermes-engine and jsc are compileOnly dependencies.
+-  compileOnly(project(":packages:react-native:ReactAndroid:hermes-engine"))
++
+   compileOnly(libs.jsc.android)
+ 
+   testImplementation(libs.junit)
+diff --git a/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts b/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
+index 9fa746d..f9d5b99 100644
+--- a/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
++++ b/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts
+@@ -48,7 +48,6 @@ fun getSDKManagerPath(): String {
+   }
+ }
+ 
+-val reactNativeRootDir = project(":packages:react-native:ReactAndroid").projectDir.parent
+ val customDownloadDir = System.getenv("REACT_NATIVE_DOWNLOADS_DIR")
+ val downloadsDir =
+     if (customDownloadDir != null) {
+diff --git a/node_modules/react-native/ReactAndroid/publish.gradle b/node_modules/react-native/ReactAndroid/publish.gradle
+index 32287a7..85bdb8d 100644
+--- a/node_modules/react-native/ReactAndroid/publish.gradle
++++ b/node_modules/react-native/ReactAndroid/publish.gradle
+@@ -12,7 +12,7 @@ def isSnapshot = findProperty("isSnapshot")?.toBoolean()
+ def signingKey = findProperty("SIGNING_KEY")
+ def signingPwd = findProperty("SIGNING_PWD")
+ 
+-def reactAndroidProjectDir = project(':packages:react-native:ReactAndroid').projectDir
++
+ def mavenTempLocalUrl = "file:///tmp/maven-local"
+ 
+ publishing {

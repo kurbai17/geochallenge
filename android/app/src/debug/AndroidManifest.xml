@@ -1,0 +1,18 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+
+    <!-- Usar el mismo esquema de redirección en debug -->
+    <application
+        android:usesCleartextTraffic="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:theme">
+        
+        <meta-data
+            android:name="appAuthRedirectScheme"
+            android:value="geochallenge" />
+        
+        <!-- Otros datos de configuración -->
+    </application>
+</manifest>

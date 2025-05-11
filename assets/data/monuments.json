@@ -1,0 +1,142 @@
+[
+  {
+    "name": "Acrópolis de Atenas",
+    "latitude": 37.9715,
+    "longitude": 23.7257,
+    "image": "acropolis-atenas.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Alhambra",
+    "latitude": 37.1761,
+    "longitude": -3.5881,
+    "image": "alhambra.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Angkor Wat",
+    "latitude": 13.4125,
+    "longitude": 103.8667,
+    "image": "angkor-wat.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Basílica de San Pedro",
+    "latitude": 41.9022,
+    "longitude": 12.4539,
+    "image": "basilica-san-pedro.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Big Ben",
+    "latitude": 51.5007,
+    "longitude": -0.1246,
+    "image": "big-ben.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Boudha Kathmandu",
+    "latitude": 27.7215,
+    "longitude": 85.3616,
+    "image": "boudha-kathmandu.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Buenos Aires Calle Caminito",
+    "latitude": -34.6345,
+    "longitude": -58.3633,
+    "image": "buenos-aires-calle.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Castillo de Bran",
+    "latitude": 45.5156,
+    "longitude": 25.367,
+    "image": "castillo-bran.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Castillo de Chambord",
+    "latitude": 47.6166,
+    "longitude": 1.5166,
+    "image": "castillo-chambord.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Castillo de Edimburgo",
+    "latitude": 55.9486,
+    "longitude": -3.1999,
+    "image": "castillo-edimburgo.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Castillo de Praga",
+    "latitude": 50.0909,
+    "longitude": 14.3981,
+    "image": "castillo-praga.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Castillo Predjama",
+    "latitude": 45.8153,
+    "longitude": 14.1266,
+    "image": "castillo-predjama.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Catedral de Milán",
+    "latitude": 45.4642,
+    "longitude": 9.19,
+    "image": "catedral-milan.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Catedral de San Basilio",
+    "latitude": 55.7525,
+    "longitude": 37.6231,
+    "image": "catedral-san-basilio.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Chichen Itzá",
+    "latitude": 20.6843,
+    "longitude": -88.5678,
+    "image": "chichen-itza.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Coliseo",
+    "latitude": 41.8902,
+    "longitude": 12.4922,
+    "image": "coliseo.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Cristo Redentor",
+    "latitude": -22.9519,
+    "longitude": -43.2105,
+    "image": "cristo-redentor.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Empire State",
+    "latitude": 40.7484,
+    "longitude": -73.9857,
+    "image": "empire-state.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Estatua de la Libertad",
+    "latitude": 40.6892,
+    "longitude": -74.0445,
+    "image": "estatua-libertad.jpg",
+    "radius": 100
+  },
+  {
+    "name": "Golden Gate",
+    "latitude": 37.8199,
+    "longitude": -122.4783,
+    "image": "golden-gate.jpg",
+    "radius": 100
+  }
+]

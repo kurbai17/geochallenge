@@ -1,0 +1,15 @@
+pluginManagement {
+    includeBuild("node_modules/@react-native/gradle-plugin")
+
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+
+rootProject.name = 'GeoChallenge'
+
+include ':app'
+project(':app').projectDir = new File(rootProject.projectDir, 'android/app')
+
