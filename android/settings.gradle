@@ -13,5 +13,6 @@ pluginManagement {
 
 rootProject.name = 'GeoChallenge'
 
-include ':app'
-project(':app').projectDir = new File(rootProject.projectDir, 'android/app')
+include(":app")
+project(":app").projectDir = new File(rootDir, "app")
+
