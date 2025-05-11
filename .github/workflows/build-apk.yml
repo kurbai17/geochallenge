@@ -26,9 +26,10 @@ jobs:
 
       - name: Install JS dependencies and clean
         run: |
-          npm install
+          npm ci
           cd android
           ./gradlew clean
+
 
       - name: Build Debug APK
         run: |
