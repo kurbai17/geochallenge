@@ -1,4 +1,4 @@
-name: Build Android APK
+name: Build and Upload APK Release
 
 on:
   push:
@@ -22,19 +22,4 @@ jobs:
       - name: Set up Java
         uses: actions/setup-java@v3
         with:
-          distribution: 'temurin'
-          java-version: '17'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Build Debug APK
-        run: |
-          cd android
-          ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v2.3.1
-        with:
-          name: app-debug
-          path: android/app/build/outputs/apk/debug/app-debug.apk
+          distribution: '
