@@ -1,5 +1,8 @@
 pluginManagement {
-    includeBuild("node_modules/@react-native/gradle-plugin")
+    def reactNativeGradlePluginPath = file("${rootDir}/../node_modules/@react-native/gradle-plugin")
+    if (reactNativeGradlePluginPath.exists()) {
+        includeBuild(reactNativeGradlePluginPath)
+    }
 
     repositories {
         google()
