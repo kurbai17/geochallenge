@@ -5,8 +5,8 @@ import com.facebook.react.ReactApplication
 import com.facebook.react.ReactNativeHost
 import com.facebook.react.ReactPackage
 import com.facebook.soloader.SoLoader
-import com.facebook.react.PackageList
 import com.kurbai.geochallenge.BuildConfig
+import com.kurbai.geochallenge.AutolinkingPackageList
 import androidx.emoji.text.EmojiCompat
 import androidx.emoji.bundled.BundledEmojiCompatConfig
 
@@ -16,7 +16,7 @@ class MainApplication : Application(), ReactApplication {
     override fun getUseDeveloperSupport(): Boolean = BuildConfig.DEBUG
 
     override fun getPackages(): List<ReactPackage> {
-      return PackageList(this).packages
+      return AutolinkingPackageList.get()
     }
 
     override fun getJSMainModuleName(): String = "index"
