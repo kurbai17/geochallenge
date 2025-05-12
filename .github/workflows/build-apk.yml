@@ -23,11 +23,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-          
-      - name: Create autolinking.json manually
-        run: |
-          mkdir -p android/build/generated/autolinking
-          echo '{}' > android/build/generated/autolinking/autolinking.json
 
       - name: Create app.json
         run: |
@@ -35,7 +30,7 @@ jobs:
             "name": "geochallenge",
             "displayName": "GeoChallenge",
             "android": {
-              "package": "com.kurbai.geochallenge"
+              "packageName": "com.kurbai.geochallenge"
             }
           }' > app.json
 
@@ -55,4 +50,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path:
+          path: android/app/build/outputs/apk/debug/app-debug.apk

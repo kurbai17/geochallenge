@@ -1,7 +1,7 @@
 module.exports = {
   project: {
     android: {
-      packageName: 'com.kurbai.geochallenge', // 👈 CORREGIDO
+      packageName: 'com.kurbai.geochallenge', 
     },
   },
   assets: ['./assets/fonts'],
