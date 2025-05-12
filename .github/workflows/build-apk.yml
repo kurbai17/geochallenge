@@ -44,7 +44,8 @@ jobs:
         run: chmod +x android/gradlew
 
       - name: Build debug APK
-        run: cd android && ./gradlew assembleDebug
+        run: cd android && REACT_NATIVE_ANDROID_PACKAGE_NAME=com.kurbai.geochallenge ./gradlew assembleDebug
+
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
