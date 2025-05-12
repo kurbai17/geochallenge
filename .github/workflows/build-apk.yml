@@ -23,6 +23,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+      
+      - name: Install Android SDK 34
+        run: |
+          echo "y" | sudo $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager "platforms;android-34"
 
       - name: Create app.json
         run: |
