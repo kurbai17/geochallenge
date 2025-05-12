@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const outputPath = path.join(__dirname, '../android/build/generated/autolinking/autolinking.json');
+const filePath = path.resolve(__dirname, '../android/build/generated/autolinking/autolinking.json');
 
 const config = {
   android: {
@@ -9,5 +9,5 @@ const config = {
   },
 };
 
-fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-fs.writeFileSync(outputPath, JSON.stringify(config, null, 2));
+fs.mkdirSync(path.dirname(filePath), { recursive: true });
+fs.writeFileSync(filePath, JSON.stringify(config, null, 2));
