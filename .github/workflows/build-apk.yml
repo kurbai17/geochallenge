@@ -23,6 +23,11 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
+          
+      - name: Create autolinking.json manually
+        run: |
+          mkdir -p android/build/generated/autolinking
+          echo '{}' > android/build/generated/autolinking/autolinking.json
 
       - name: Create app.json
         run: |
