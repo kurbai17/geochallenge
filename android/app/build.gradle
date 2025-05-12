@@ -53,3 +53,10 @@ dependencies {
     implementation "androidx.emoji:emoji-bundled:1.1.0"
     implementation "androidx.core:core:1.9.0"
 }
+afterEvaluate {
+    if (System.getenv("CI")?.toBoolean()) {
+        dependencies {
+            implementation("com.facebook.react:react-android:+")
+        }
+    }
+}
