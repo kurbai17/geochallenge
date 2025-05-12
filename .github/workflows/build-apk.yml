@@ -18,14 +18,26 @@ jobs:
         with:
           node-version: 18
 
-      - name: Install dependencies
-        run: npm install --legacy-peer-deps
-
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17
+
+      - name: Create app.json
+        run: |
+          cat <<EOF > app.json
+          {
+            "name": "geochallenge",
+            "displayName": "GeoChallenge",
+            "android": {
+              "package": "com.kurbai.geochallenge"
+            }
+          }
+          EOF
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
 
       - name: Create autolinking.json manually
         run: |
@@ -34,16 +46,6 @@ jobs:
 
       - name: Make Gradle executable
         run: chmod +x android/gradlew
-
-      - name: Create app.json if missing
-        run: |
-          echo '{
-            "name": "geochallenge",
-            "displayName": "GeoChallenge",
-            "android": {
-              "package": "com.kurbai.geochallenge"
-            }
-          }' > app.json
 
       - name: Build debug APK
         run: cd android && ./gradlew assembleDebug
