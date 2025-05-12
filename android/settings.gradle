@@ -1,13 +1,11 @@
 pluginManagement {
+    includeBuild("../node_modules/@react-native/gradle-plugin")
+
     repositories {
-        gradlePluginPortal()
         google()
         mavenCentral()
+        gradlePluginPortal()
     }
-}
-
-plugins {
-    id("com.facebook.react") version("0.79.2")
 }
 
 rootProject.name = "GeoChallenge"
