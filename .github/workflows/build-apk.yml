@@ -27,14 +27,23 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Ensure app.json is present
-        run: echo '{ "name": "geochallenge", "displayName": "GeoChallenge", "android": { "package": "com.kurbai.geochallenge" } }' > app.json
-
-      - name: Rebuild native directories
-        run: npx react-native config
+      - name: Create autolinking.json manually
+        run: |
+          mkdir -p android/build/generated/autolinking
+          echo '{}' > android/build/generated/autolinking/autolinking.json
 
       - name: Make Gradle executable
         run: chmod +x android/gradlew
+
+      - name: Create app.json if missing
+        run: |
+          echo '{
+            "name": "geochallenge",
+            "displayName": "GeoChallenge",
+            "android": {
+              "package": "com.kurbai.geochallenge"
+            }
+          }' > app.json
 
       - name: Build debug APK
         run: cd android && ./gradlew assembleDebug
