@@ -29,6 +29,8 @@ jobs:
           npm ci
           npx react-native config
 
+      - name: Preparar carpeta para autolinking
+        run: mkdir -p android/build/generated/autolinking && npx react-native config > android/build/generated/autolinking/autolinking.json
 
 
 
