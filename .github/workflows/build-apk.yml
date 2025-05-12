@@ -27,13 +27,15 @@ jobs:
       - name: Create app.json con packageName correcto
         run: |
           cat <<EOF > app.json
-          {
-            "name": "geochallenge",
-            "displayName": "GeoChallenge",
-            "android": {
-              "packageName": "com.kurbai.geochallenge"
-            }
-          }
+{
+  "name": "geochallenge",
+  "displayName": "GeoChallenge",
+  "android": {
+    "packageName": "com.kurbai.geochallenge"
+  }
+}
+EOF
+
           EOF
 
       - name: Install dependencies
