@@ -19,13 +19,18 @@ jobs:
           node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm install --legacy-peer-deps
 
       - name: Set up Java
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
           java-version: 17
+          
+      - name: Create autolinking.json manually
+        run: |
+          mkdir -p android/build/generated/autolinking
+          echo '{}' > android/build/generated/autolinking/autolinking.json
 
       - name: Make Gradle executable
         run: chmod +x android/gradlew
