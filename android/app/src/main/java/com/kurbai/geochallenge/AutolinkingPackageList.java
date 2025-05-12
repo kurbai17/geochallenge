@@ -2,7 +2,7 @@ package com.kurbai.geochallenge;
 
 import com.facebook.react.ReactPackage;
 import com.reactnativecommunity.webview.RNCWebViewPackage;
-import com.swmansion.gesturehandler.RNGestureHandlerPackage;
+import com.swmansion.gesturehandler.react.RNGestureHandlerPackage;
 import com.swmansion.reanimated.ReanimatedPackage;
 import com.swmansion.rnscreens.RNScreensPackage;
 import com.BV.LinearGradient.LinearGradientPackage;
