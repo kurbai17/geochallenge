@@ -1,31 +1,17 @@
 plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id 'com.facebook.react' // 👈 Añade esto aquí directamente
+    id("com.android.application")
+    id("com.facebook.react")
+    id("org.jetbrains.kotlin.android")
 }
-
-if (!System.getenv("CI")?.toBoolean()) {
-    apply plugin: 'com.facebook.react'
-}
-
-project.ext.react = [
-  enableHermes: false,
-  reactNativeArchitectures: "armeabi-v7a,arm64-v8a,x86,x86_64"
-]
-def reactGradlePath = rootProject.file("node_modules/react-native/react.gradle")
-if (reactGradlePath.exists()) {
-    apply from: reactGradlePath
-}
-
 
 android {
-    compileSdkVersion 34
-    namespace 'com.kurbai.geochallenge'
+    namespace "com.kurbai.geochallenge"
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.kurbai.geochallenge"
-        minSdkVersion 24
-        targetSdkVersion 34
+        minSdk 24
+        targetSdk 34
         versionCode 1
         versionName "1.0"
     }
@@ -33,6 +19,8 @@ android {
     buildTypes {
         release {
             minifyEnabled false
+            shrinkResources false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
         }
     }
 
@@ -51,11 +39,10 @@ android {
 }
 
 dependencies {
-    implementation 'com.facebook.react:react-android'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.11.0'
+    implementation "com.facebook.react:react-android"
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "com.google.android.material:material:1.11.0"
     implementation "androidx.emoji:emoji:1.1.0"
     implementation "androidx.emoji:emoji-bundled:1.1.0"
     implementation "androidx.core:core:1.9.0"
 }
-
