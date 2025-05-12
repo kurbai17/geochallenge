@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.facebook.react' // 👈 Añade esto aquí directamente
 }
 
 if (!System.getenv("CI")?.toBoolean()) {
@@ -12,6 +13,7 @@ project.ext.react = [
   reactNativeArchitectures: "armeabi-v7a,arm64-v8a,x86,x86_64"
 ]
 
+apply from: new File(["node", "--print", "require.resolve('react-native/package.json')"].execute(null, rootDir).text.trim(), "../react.gradle")
 
 android {
     compileSdkVersion 34
@@ -53,10 +55,4 @@ dependencies {
     implementation "androidx.emoji:emoji-bundled:1.1.0"
     implementation "androidx.core:core:1.9.0"
 }
-afterEvaluate {
-    if (System.getenv("CI")?.toBoolean()) {
-        dependencies {
-            implementation("com.facebook.react:react-android:+")
-        }
-    }
-}
+
