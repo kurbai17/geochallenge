@@ -26,15 +26,15 @@ jobs:
 
       - name: Create app.json con packageName correcto
         run: |
-          cat <<EOF > app.json
-{
-  "name": "geochallenge",
-  "displayName": "GeoChallenge",
-  "android": {
-    "packageName": "com.kurbai.geochallenge"
-  }
-}
-EOF
+          echo '{
+            "name": "geochallenge",
+            "displayName": "GeoChallenge",
+            "android": {
+              "packageName": "com.kurbai.geochallenge"
+            }
+          }' > app.json
+
+
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
