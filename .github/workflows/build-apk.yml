@@ -24,14 +24,14 @@ jobs:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Create app.json
+      - name: Create app.json con packageName correcto
         run: |
           cat <<EOF > app.json
           {
             "name": "geochallenge",
             "displayName": "GeoChallenge",
             "android": {
-              "package": "com.kurbai.geochallenge"
+              "packageName": "com.kurbai.geochallenge"
             }
           }
           EOF
