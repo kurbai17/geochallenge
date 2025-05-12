@@ -36,8 +36,6 @@ jobs:
 }
 EOF
 
-          EOF
-
       - name: Install dependencies
         run: npm install --legacy-peer-deps
 
