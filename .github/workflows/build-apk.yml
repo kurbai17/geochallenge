@@ -24,8 +24,11 @@ jobs:
           distribution: temurin
           java-version: 17
 
-      - name: Install JS dependencies
-        run: npm ci
+      - name: Install JS deps and prepare autolinking
+        run: |
+          npm ci
+          npx react-native config
+
 
 
 
