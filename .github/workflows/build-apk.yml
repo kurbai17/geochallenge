@@ -28,10 +28,12 @@ jobs:
         run: |
           npm ci
           npx react-native config
-
+      
+      - name: Ejecutar Jetifier para compatibilidad AndroidX
+        run: npx jetify
+      
       - name: Preparar carpeta para autolinking
         run: mkdir -p android/build/generated/autolinking && npx react-native config > android/build/generated/autolinking/autolinking.json
-
 
 
       - name: Build Debug APK

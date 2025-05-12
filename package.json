@@ -30,6 +30,7 @@
   "private": true,
   "devDependencies": {
     "@react-native-community/cli": "^18.0.0",
+    "jetifier": "^2.0.0",
     "patch-package": "^8.0.0",
     "postinstall-postinstall": "^2.1.0"
   },
