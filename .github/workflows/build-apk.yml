@@ -1,8 +1,9 @@
-name: Build and Upload APK
+name: Build APK
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
 jobs:
   build:
@@ -12,42 +13,28 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
+      - name: Set up Node
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      - name: Set up Java
+      - name: Install dependencies
+        run: npm install
+
+      - name: Set up JDK
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: 17
 
-      - name: Install dependencies with yarn
-        run: yarn install
+      - name: Make Gradle executable
+        run: chmod +x android/gradlew
 
-      - name: Run Jetifier for AndroidX
-        run: npx jetify
+      - name: Build Debug APK
+        run: cd android && ./gradlew assembleDebug
 
-      - name: Generate autolinking.json
-        run: mkdir -p android/build/generated/autolinking && npx react-native config > android/build/generated/autolinking/autolinking.json
-
-      - name: Build APK
-        run: |
-          cd android
-          ./gradlew assembleDebug
-
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
         with:
-          tag_name: apk-latest
-          name: "APK Build"
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload APK to Release
-        uses: softprops/action-gh-release@v1
-        with:
-          files: android/app/build/outputs/apk/debug/app-debug.apk
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          name: app-debug.apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
