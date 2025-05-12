@@ -2,6 +2,6 @@
   "name": "geochallenge",
   "displayName": "GeoChallenge",
   "android": {
-    "package": "com.kurbai.geochallenge"
+    "packageName": "com.kurbai.geochallenge"
   }
 }
