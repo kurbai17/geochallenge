@@ -3,6 +3,9 @@ plugins {
     id("com.facebook.react")
     id("org.jetbrains.kotlin.android")
 }
+tasks.named("generateAutolinkingPackageList").configure {
+    enabled = false
+}
 
 android {
     namespace "com.kurbai.geochallenge"
