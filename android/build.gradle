@@ -1,39 +1,24 @@
-plugins {
-    id("com.android.application")
-    id("com.facebook.react")
-    id("org.jetbrains.kotlin.android")
-}
-
-tasks.whenTaskAdded { task ->
-    if (task.name == 'generateAutolinkingPackageList') {
-        task.enabled = false
+buildscript {
+    ext {
+        kotlinVersion = "1.9.10"
+    }
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.android.tools.build:gradle:8.3.0")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
 
-android {
-    namespace "com.kurbai.geochallenge"
-    compileSdk 34
-
-    defaultConfig {
-        applicationId "com.kurbai.geochallenge"
-        minSdk 23
-        targetSdk 34
-        versionCode 1
-        versionName "1.0"
-    }
-
-    buildTypes {
-        release {
-            shrinkResources false
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
-        }
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.10"
-}
 subprojects {
     afterEvaluate { project ->
         if (project.hasProperty("android")) {
