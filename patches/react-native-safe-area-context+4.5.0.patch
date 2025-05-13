@@ -1,0 +1,11 @@
+diff --git a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt
+index 2d29dbd..44e57a8 100644
+--- a/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt
++++ b/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt
+@@ -1,5 +1,6 @@
+ package com.th3rdwave.safeareacontext
+ 
++
+ import android.content.Context
+ import android.util.Log
+ import android.view.View
