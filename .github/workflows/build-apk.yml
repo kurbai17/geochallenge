@@ -25,7 +25,9 @@ jobs:
           java-version: 17
       
       - name: Install Android SDK 34
-        run: yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager
+        run: |
+          echo "Installing SDK 34..."
+          ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-34" --sdk_root=${ANDROID_HOME}
 
       - name: Create app.json
         run: |
