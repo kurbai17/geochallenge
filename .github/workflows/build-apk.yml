@@ -23,21 +23,25 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: 17
-      
+
+      - name: Cache Gradle
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.gradle/caches
+            ~/.gradle/wrapper
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
+
+      - name: Install Android Command Line Tools
+        run: |
+          mkdir -p ${ANDROID_HOME}/cmdline-tools
+          cd ${ANDROID_HOME}/cmdline-tools
+          curl -o tools.zip https://dl.google.com/android/repository/commandlinetools-linux-11076708_latest.zip
+          unzip tools.zip -d latest
+
       - name: Install Android SDK 34
         run: |
-          echo "Installing SDK 34..."
-          ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --install "platforms;android-34" --sdk_root=${ANDROID_HOME}
-
-      - name: Create app.json
-        run: |
-          echo '{
-            "name": "geochallenge",
-            "displayName": "GeoChallenge",
-            "android": {
-              "packageName": "com.kurbai.geochallenge"
-            }
-          }' > app.json
+          yes | ${ANDROID_HOME}/cmdline-tools/latest/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-34"
 
       - name: Install dependencies
         run: npm install --legacy-peer-deps
@@ -49,8 +53,7 @@ jobs:
         run: chmod +x android/gradlew
 
       - name: Build debug APK
-        run: cd android && REACT_NATIVE_ANDROID_PACKAGE_NAME=com.kurbai.geochallenge ./gradlew assembleDebug
-
+        run: cd android && ./gradlew assembleDebug
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
