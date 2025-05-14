@@ -22,9 +22,14 @@ class MainApplication : Application(), ReactApplication {
     override fun getJSMainModuleName(): String = "index"
   }
 
-  override fun onCreate() {
-    super.onCreate()
-    SoLoader.init(this, false)
+    override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(null)
+  }
+
+  override fun createReactActivityDelegate(): ReactActivityDelegate {
+    return DefaultReactActivityDelegate(this, mainComponentName, false)
+  }
+}
 
     // Desactiva Bridgeless por compatibilidad
     try {
